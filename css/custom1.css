@@ -17,4 +17,8 @@ prm-search > md-content.md-primoExplore-theme .main {
 
 */
 
+/* Hide Digitize radio button from CLS form */
 
+md-radio-button[value="PHYSICAL_NON_RETURNABLE"] {
+  display: none;
+}

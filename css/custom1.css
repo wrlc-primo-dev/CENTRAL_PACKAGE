@@ -23,6 +23,11 @@ md-radio-button[value="PHYSICAL_NON_RETURNABLE"] {
   display: none;
 }
 
+/* Hide hold for pickup */
+span[translate="AlmaRequest"] {
+    display: none;
+}
+
 /* WRLC footer */
 
 #wrlc-footer {

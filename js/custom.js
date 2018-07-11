@@ -2,7 +2,7 @@
     "use strict";
     'use strict';
 
-    var app = angular.module('centralCustom', ['angularLoad']);
+    var app = angular.module('centralCustom', ['angularLoad', 'googleAnalytics']);
 
     app.component('prmSilentLoginAfter', {
     template: `
@@ -17,7 +17,7 @@
         enabled: true,
         siteId: 'UA-9172733-11',
         defaultTitle: 'WRLC Search'
-    });
+    });    
 
     // GA module
     angular.module('googleAnalytics', []);
@@ -30,7 +30,7 @@
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+    
                     ga('create', analyticsOptions.siteId, {'alwaysSendReferrer': true});
                     ga('set', 'anonymizeIp', true);
                 }
@@ -43,7 +43,7 @@
                         if (window.location.pathname.indexOf('openurl') !== -1 || window.location.pathname.indexOf('fulldisplay') !== -1)
                             if (angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).length === 0) return;
                             else documentTitle = angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).text();
-
+                        
                         if(typeof ga !== 'undefined') {
                             if(fromState != toState) ga('set', 'referrer', fromState);
                             ga('set', 'location', toState);

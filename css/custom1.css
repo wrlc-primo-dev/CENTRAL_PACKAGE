@@ -1,5 +1,3 @@
-
-
 /*Uncomment the follwoing lines to move facets to the left*/
 
 /*
@@ -18,7 +16,6 @@ prm-search > md-content.md-primoExplore-theme .main {
 */
 
 /* Hide Digitize radio button from CLS form */
-
 md-radio-button[value="PHYSICAL_NON_RETURNABLE"] {
   display: none;
 }
@@ -28,8 +25,12 @@ span[translate="AlmaRequest"] {
     display: none;
 }
 
-/* WRLC footer */
+/* Hide Format option on CLS Form */
+.service-form-item:nth-child(9) {
+    display: none;
+}
 
+/* WRLC footer */
 #wrlc-footer {
     padding: 10px;
     background: #e9e9e9;

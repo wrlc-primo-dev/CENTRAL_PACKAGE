@@ -2,16 +2,26 @@
     "use strict";
     'use strict';
 
-    var app = angular.module('centralCustom', ['angularLoad', 'googleAnalytics']);
+    var app = angular.module('centralCustom', ['angularLoad', 'googleAnalytics', 'wrlcFooter']);
 
-    app.component('prmSilentLoginAfter', {
-    template: `
-	<div id="wrlc-footer" layout="row" layout-align="center center">
-	    <div id="wrlc-footer-message" layout-align="center center">This service is provided in partnership with the <a href="https://www.wrlc.org">Washington Research Library Consortium</a></div>
-	</div>
-    `
-
+    app.value('wrlcFooterConfig', {
+        message: 'This service is provided in partnership with the <a href="https://www.wrlc.org">Washington Research Library Consortium</a>'
     });
+
+    angular.module('wrlcFooter', [])
+        .component('prmSilentLoginAfter', {
+    	template: `
+    	    <div id="wrlc-footer" layout="row" layout-align="center center">
+    	        <div ng-bind-html="$ctrl.config.message" id="wrlc-footer-message" layout-align="center center"></div>
+    	    </div>
+    	`,
+	controller:
+	    function footerController(wrlcFooterConfig){
+		var self = this;
+                self.config = wrlcFooterConfig;
+            }
+    	});
+
 
     app.value('analyticsOptions', {
         enabled: true,
@@ -30,7 +40,7 @@
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
                     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
+
                     ga('create', analyticsOptions.siteId, {'alwaysSendReferrer': true});
                     ga('set', 'anonymizeIp', true);
                 }
@@ -43,7 +53,7 @@
                         if (window.location.pathname.indexOf('openurl') !== -1 || window.location.pathname.indexOf('fulldisplay') !== -1)
                             if (angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).length === 0) return;
                             else documentTitle = angular.element(document.querySelector('prm-full-view-service-container .item-title>a')).text();
-                        
+
                         if(typeof ga !== 'undefined') {
                             if(fromState != toState) ga('set', 'referrer', fromState);
                             ga('set', 'location', toState);

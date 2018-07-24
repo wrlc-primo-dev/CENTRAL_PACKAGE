@@ -25,11 +25,6 @@ span[translate="AlmaRequest"] {
     display: none;
 }
 
-/* Hide Format option on CLS Form */
-.service-form-item:nth-child(9) {
-    display: none;
-}
-
 /* WRLC footer */
 #wrlc-footer {
     padding: 10px;

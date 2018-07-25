@@ -1,29 +1,40 @@
-/*Uncomment the follwoing lines to move facets to the left*/
+/* 
+ * Request form customizations
+ */ 
 
-/*
-prm-search > md-content.md-primoExplore-theme .main {
-    display: -webkit-flex; !* Safari *!
-    -webkit-flex-flow: row-reverse wrap; !* Safari 6.1+ *!
-    display: flex;
-    flex-flow: row-reverse wrap;
-
-}
-.screen-gt-sm .sidebar{
-    webkit-flex: 0 0 15%;
-    flex: 0 0 15%;
+/* Make the request form column wider */
+prm-request > div.service-form.layout-margin.layout-row > div > form > div.layout-align-center-center.layout-row.flex > div {
+    width: 80%
 }
 
-*/
-
-/* Show warning on article requests. doesn't display well on small screens so restricted w media query */
-@media only screen
-and (min-width : 720px) {
-  prm-form-field:nth-child(1) > div > md-input-container > md-radio-group > div.layout-align-start-center.layout-row:nth-child(3).md-checked::after {
-    content: 'For articles select "Chapter/Article Request" below AVAILABILITY AT CONSORTIUM LIBRARIES';
+prm-request > div.service-form.layout-margin.layout-row > div > form > div.layout-align-center-center.layout-row.flex > div > prm-form-field > div > md-input-container {
     display: block;
     position: relative;
-  }
+    padding: 2px;
+    margin: 18px 0;
+    vertical-align: middle;
 }
+
+/* CLS Form: Show warning on article requests. doesn't display well on small screens so restricted w media query */
+@media only screen
+and (min-width : 720px) {
+    prm-form-field:nth-child(1) > div > md-input-container > md-radio-group > div.layout-align-start-center.layout-row:nth-child(3).md-checked::after {
+      content: 'For articles select "Chapter/Article Request" below AVAILABILITY AT CONSORTIUM LIBRARIES';
+      display: block;
+      position: relative;
+    }
+}
+
+/* Digitization form: add explainer text. Primo VE bug doesn't allow check by default yet */
+span[translate="partial"]::after {
+    content: ": check and complete all fields" ;
+}
+
+/* End request form customizations */
+
+/* 
+ * Custom modules
+ */ 
 
 /* WRLC footer */
 #wrlc-footer {
@@ -32,3 +43,5 @@ and (min-width : 720px) {
     z-index: 10;
     position: relative;
 }
+
+/* End custom modules */

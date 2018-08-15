@@ -8,6 +8,31 @@
         message: 'This service is provided in partnership with the <a href="https://www.wrlc.org">Washington Research Library Consortium</a>'
     });
 
+    angular.module('illCard', [])
+        .component('prmRequestsOverviewAfter', {
+            template: `
+            <div ng-if="$ctrl.config.signon_url" class="tiles-grid-tile">
+                <div class="tile-content layout-column" layout="column">
+                    <div class="tile-header layout-column" layout="column">
+                        <div style="display:block;" layout="row" layout-align="space-between" class="layout-align-space-between-stretch layout-row">
+                            <h2 class="header-link light-text"><span>{{ $ctrl.config.card_title }}</span></h2>
+                                <div layout="row" layout-align="start center">
+                                    <span ng-bind-html="$ctrl.config.message"></span>
+                                </div>
+                            <div layout="column" layout-align="center center" layout-padding layout-margin class="layout-margin layout-padding layout-align-center-center layout-column">
+                                <a href="{{ $ctrl.config.signon_url }}">{{ $ctrl.config.link_text}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`,
+            controller:
+                function illCardController(illCardConfig) {
+                    var self = this;
+                        self.config = illCardConfig;
+                }
+        });
+
     angular.module('wrlcFooter', [])
         .component('prmSilentLoginAfter', {
     	template: `

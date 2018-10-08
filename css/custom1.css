@@ -19,7 +19,7 @@ prm-request > div.service-form.layout-margin.layout-row > div > form > div.layou
 @media only screen
 and (min-width : 720px) {
     prm-form-field:nth-child(1) > div > md-input-container > md-radio-group > div.layout-align-start-center.layout-row:nth-child(3).md-checked::after {
-      content: 'For articles select "Chapter/Article Request" below AVAILABILITY AT CONSORTIUM LIBRARIES';
+      content: 'CLS Article requests are not available; please select "Interlibrary Loan" or "Chapter/Article" requests for journal articles.';
       display: block;
       position: relative;
     }

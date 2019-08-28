@@ -50,7 +50,7 @@ md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Was
 }
 
 md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Jacob Burns Law Library"]::after {
-    content: "(entry restricted to GW law affiliates)";
+    content: "Entry restricted to GW law affiliates";
 
 }
 /* End request form customizations */

@@ -15,21 +15,34 @@ prm-request > div.service-form.layout-margin.layout-row > div > form > div.layou
     vertical-align: middle;
 }
 
-/* CLS Form: Show warning on article requests. doesn't display well on small screens so restricted w media query */
-@media only screen
-and (min-width : 720px) {
-    prm-form-field:nth-child(1) > div > md-input-container > md-radio-group > div.layout-align-start-center.layout-row:nth-child(3).md-checked::after {
-      content: 'CLS Article requests are not available; please select "Interlibrary Loan" or "Chapter/Article" requests for journal articles.';
-      display: block;
-      position: relative;
-    }
-}
-
 /* Digitization form: add explainer text. Primo VE bug doesn't allow check by default yet */
 span[translate="partial"]::after {
     content: ": check and complete all fields" ;
 }
 
+/* Add 'entry restricted tags to GW Himmelfarb and Law libraries in "Pickup at Institution list */
+
+/* add warning for himmlefarb */
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Himmelfarb Health Sciences Library"] {
+    position: relative;
+    display: inline
+}
+
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Himmelfarb Health Sciences Library"]::after {
+    content: "Entry restricted to GW health sciences affiliates";
+
+}
+
+/* add warning for law */
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Jacob Burns Law Library"] {
+    position: relative;
+    display: inline
+}
+
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Jacob Burns Law Library"]::after {
+    content: "Entry restricted to GW law affiliates";
+
+}
 /* End request form customizations */
 
 /* 

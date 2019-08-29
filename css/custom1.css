@@ -15,16 +15,6 @@ prm-request > div.service-form.layout-margin.layout-row > div > form > div.layou
     vertical-align: middle;
 }
 
-/* CLS Form: Show warning on article requests. doesn't display well on small screens so restricted w media query */
-@media only screen
-and (min-width : 720px) {
-    prm-form-field:nth-child(1) > div > md-input-container > md-radio-group > div.layout-align-start-center.layout-row:nth-child(3).md-checked::after {
-      content: '';
-      display: block;
-      position: relative;
-    }
-}
-
 /* Digitization form: add explainer text. Primo VE bug doesn't allow check by default yet */
 span[translate="partial"]::after {
     content: ": check and complete all fields" ;

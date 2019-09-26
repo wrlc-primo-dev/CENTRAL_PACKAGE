@@ -43,6 +43,13 @@ md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Was
     content: "Entry restricted to GW law affiliates";
 
 }
+
+/* Hide Photocopy option */
+md-radio-button[aria-label="Photocopy - NOT AVAILABLE"],
+md-radio-button[aria-label="Photocopy"] {
+    display: none;
+}
+
 /* End request form customizations */
 
 /* 

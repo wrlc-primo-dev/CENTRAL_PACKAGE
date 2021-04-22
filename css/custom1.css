@@ -1,0 +1,66 @@
+/* 
+ * Request form customizations
+ */ 
+
+/* Make the request form column wider */
+prm-request > div.service-form.layout-margin.layout-row > div > form > div.layout-align-center-center.layout-row.flex > div {
+    width: 80%
+}
+
+prm-request > div.service-form.layout-margin.layout-row > div > form > div.layout-align-center-center.layout-row.flex > div > prm-form-field > div > md-input-container {
+    display: block;
+    position: relative;
+    padding: 2px;
+    margin: 18px 0;
+    vertical-align: middle;
+}
+
+/* Digitization form: add explainer text. Primo VE bug doesn't allow check by default yet */
+span[translate="partial"]::after {
+    content: ": check and complete all fields" ;
+}
+
+/* Add 'entry restricted tags to GW Himmelfarb and Law libraries in "Pickup at Institution list */
+
+/* add warning for himmlefarb */
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Himmelfarb Health Sciences Library"] {
+    position: relative;
+    display: inline
+}
+
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Himmelfarb Health Sciences Library"]::after {
+    content: "Entry restricted to GW health sciences affiliates";
+
+}
+
+/* add warning for law */
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Jacob Burns Law Library"] {
+    position: relative;
+    display: inline
+}
+
+md-select[aria-label="almaResourceSharing.preferredPickupInstitution: George Washington University Jacob Burns Law Library"]::after {
+    content: "Entry restricted to GW law affiliates";
+
+}
+
+/* Hide Photocopy option */
+md-radio-button[value="PHYSICAL_NON_RETURNABLE"] {
+    display: none;
+}
+
+/* End request form customizations */
+
+/* 
+ * Custom modules
+ */ 
+
+/* WRLC footer */
+#wrlc-footer {
+    padding: 10px;
+    background: #e9e9e9;
+    z-index: 10;
+    position: relative;
+}
+
+/* End custom modules */

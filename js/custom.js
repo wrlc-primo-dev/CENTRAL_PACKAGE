@@ -2,7 +2,7 @@
     "use strict";
     'use strict';
 
-    var app = angular.module('centralCustom', ['angularLoad', 'googleAnalytics', 'wrlcFooter', 'speedDialFix']);
+    var app = angular.module('centralCustom', ['angularLoad', 'googleAnalytics', 'wrlcFooter']);
 
     app.value('wrlcFooterConfig', {
         message: 'This service is provided in partnership with the <a href="https://www.wrlc.org">Washington Research Library Consortium</a>'
@@ -98,46 +98,5 @@
             };
         }
 
-    });
-    // Speeddial widget fix
-    angular.module('speedDialFix', []).component('prmPageNavMenuAfter', {
-        template: '<speed-dial-fix></speed-dial-fix>',
-        bindings: {parentCtrl: '<'},
-        controller: function speedDialFixController() {
-
-            // Use MutationObserver to watch DOM for changes
-            var observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    // Get each instance of an md-fab-action-item element
-                    var actions = document.getElementsByClassName('md-fab-action-item')
-
-                    // Parse each element for a style property with a transform property
-                    var i;
-                    for (i = 0; i < actions.length; i++) {
-                        // Get the numeric value of the transform property
-                        var num = actions[i].style.transform.match(/-?\d+\.?\d*/)
-                        // Make sure a transform property is present to avoid errors
-                        if (num) {
-                            // If the value is negative, change it to positive
-                            var numValue = num[0];
-                            var newNumValue = numValue.replace('-', '');
-                            // Set the new transform value
-                            actions[i].style.transform = 'translateX(' + newNumValue + 'px)';
-                        }
-                    }
-                });
-            });
-
-            // Watch ALL changes in the targetNode
-            var observerConfig = {
-                attributes: true,
-                childList: true,
-                characterData: true
-            };
-
-            // Observe the DOM and execute the observer
-            var targetNode = document.body;
-            observer.observe(targetNode, observerConfig);
-        }
     });
 })();
